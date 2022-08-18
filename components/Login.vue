@@ -23,7 +23,7 @@
           <p class="mt-2 text-center text-sm text-gray-600">
             Or
             <NuxtLink
-              href="/signup"
+              to="/signup"
               class="font-medium text-indigo-600 hover:text-indigo-500"
             >
               create new account
