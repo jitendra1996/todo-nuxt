@@ -16,12 +16,20 @@
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
           Or
-          <button class="font-medium text-indigo-600 hover:text-indigo-500">
+          <a
+            href="/signup"
+            class="font-medium text-indigo-600 hover:text-indigo-500"
+          >
             create new account
-          </button>
+          </a>
         </p>
       </div>
-      <form class="mt-8 space-y-6" action="#" method="POST">
+      <form
+        class="mt-8 space-y-6"
+        action="#"
+        method="POST"
+        @submit.prevent="loginData"
+      >
         <input type="hidden" name="remember" value="true" />
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
@@ -34,7 +42,7 @@
               required
               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
               placeholder="Email address"
-              v-model="userPassword"
+              v-model="userEmailId"
             />
           </div>
           <div>
@@ -42,7 +50,7 @@
             <input
               id="password"
               name="password"
-              type="password"
+              :type="isChecked ? 'text' : 'password'"
               autocomplete="current-password"
               required
               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -109,5 +117,8 @@
 const userEmailId = ref("");
 const userPassword = ref("");
 const isChecked = ref(false);
-console.log(userEmailId.value, userPassword.value, isChecked.value);
+
+const loginData = () => {
+  console.log(userEmailId.value, userPassword.value, isChecked.value);
+};
 </script>
